@@ -1,24 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import heartEmpty from './heart-empty.png';
+import heartFilled from './heart-filled.png';
+
 import './App.css';
 
+
 function App() {
+  const [fav, setFav] = useState(false);
+  const handelImageClick = () => {
+    setFav(!fav);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <img id="heart" onClick={handelImageClick} src={fav ? heartFilled : heartEmpty} alt='heart' />
     </div>
   );
 }
